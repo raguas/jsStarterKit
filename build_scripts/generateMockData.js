@@ -1,5 +1,5 @@
 import jsf from 'json-schema-faker';
-import fsPath from 'fs-path';
+import fs from 'fs';
 import chalk from 'chalk';
 import { schema } from './mockDataSchema';
 
@@ -7,7 +7,7 @@ import { schema } from './mockDataSchema';
 
 const json = JSON.stringify(jsf(schema));
 
-fsPath.writeFile("./test_data/api/db.json", json, (error) => {
+fs.writeFile("./test_data/api/db.json", json, (error) => {
     if (error) {
         console.log(chalk.red(error));
     } else {
