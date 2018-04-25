@@ -1,6 +1,5 @@
 import webpack from "webpack";
 import chalk from 'chalk';
-import fs from 'fs';
 import webpackConfig from '../webpack.config.prod';
 
 /* eslint-disable no-console */
@@ -31,10 +30,4 @@ webpack(webpackConfig).run((error, stats) => {
     console.log(chalk.green('App has been build for production and written to /dist'));
 
     return 0;
-});
-
-fs.copyFile('./src/index.html', './dist/index.html', (error) => {
-    if (error) {
-        console.log(chalk.red("Can't copy index.html file"));
-    }
 });
